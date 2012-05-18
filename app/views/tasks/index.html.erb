@@ -1,2 +1,9 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>All tasks</h1>
+<ol>
+    <% @tasks.each do |task| %>
+    <li> <%= task.description %>
+         <%=link_to "mostrar", task%>
+         <%= link_to "borrar!", task, :method=> :delete, :confirm=> "ESTAS SEGURO?!" %>
+    </li>
+  <%end%>
+</ol>
