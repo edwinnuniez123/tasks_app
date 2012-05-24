@@ -1,4 +1,10 @@
 Tasks::Application.routes.draw do
+  get "sessions/new"
+
+  resources :users
+
+  get "tasks/_form"
+
   get "tasks/index"
 
   get "tasks/create"
@@ -14,6 +20,9 @@ Tasks::Application.routes.draw do
   get "tasks/destroy"
 
   resources :tasks
+  
+  root to: "tasks#index"
+  resources :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

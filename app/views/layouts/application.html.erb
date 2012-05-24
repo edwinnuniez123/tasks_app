@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html>
+<% flash.each do |name, msg| %>
+   <div id="flash_<%=name%>">
+      <%= msg%>
+   </div>
+<%end%>
+<% if logged_in? %>
+   <p> logged in as <%= current_user.email%> </p>
+   <% link_to "log Out", session_path(id:"current"), method:"delete" %>
+<% else %>
+   <%= link_to "create account", new_user_path %>
+   <%= link_to "log in", new_session_path%>
+<%end%> 
 <head>
   <title>Tasks</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
