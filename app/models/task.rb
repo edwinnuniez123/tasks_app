@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
  validates_uniqueness_of :description
  before_validation :clean_description
  #hodes
+ belongs_to :user
  
  private
  def clean_description
